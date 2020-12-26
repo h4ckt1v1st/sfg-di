@@ -16,10 +16,9 @@ public class SfgDiApplication {
 
 //		Here the framework is creating the object and putting it in the context.
 		MyController myController = (MyController) ctx.getBean("myController");
-
-		String greeting = myController.sayHello();
-
-		System.out.println(greeting);
+		
+		System.out.println("-------- Primary Bean");
+		System.out.println(myController.sayHello());
 
 //		For these, we need to annotate GreetingServiceImpl as a @Service.
 
