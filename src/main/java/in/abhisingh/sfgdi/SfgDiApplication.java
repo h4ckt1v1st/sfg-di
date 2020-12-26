@@ -1,9 +1,6 @@
 package in.abhisingh.sfgdi;
 
-import in.abhisingh.sfgdi.controllers.ConstructorInjectedController;
-import in.abhisingh.sfgdi.controllers.MyController;
-import in.abhisingh.sfgdi.controllers.PropertyInjectedController;
-import in.abhisingh.sfgdi.controllers.SetterInjectedController;
+import in.abhisingh.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,9 +11,12 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
 
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
+
 //		Here the framework is creating the object and putting it in the context.
 		MyController myController = (MyController) ctx.getBean("myController");
-		
+
 		System.out.println("-------- Primary Bean");
 		System.out.println(myController.sayHello());
 
